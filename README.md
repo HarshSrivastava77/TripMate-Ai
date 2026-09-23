@@ -70,15 +70,18 @@ git clone https://github.com/<your-username>/<your-repo>.git
 cd <your-repo>
 
 python -m venv .venv
+
 # Windows:
 .venv\Scripts\Activate.ps1
+
 # Mac/Linux:
 source .venv/bin/activate
 
 pip install -r requirements.txt
 
 cp .env.example .env
-# fill in your API keys and DATABASE_URL in .env
+
+# Fill in your API keys and DATABASE_URL in .env
 
 python app.py
 ```
@@ -106,13 +109,24 @@ All configuration lives in `.env` — see `.env.example` for the full template. 
 ## API Endpoints
 
 - `POST /api/travel` — start or resume a travel-planning thread
+
   ```json
-  { "message": "<user prompt>", "thread_id": "optional-thread-id" }
+  {
+    "message": "<user prompt>",
+    "thread_id": "optional-thread-id"
+  }
   ```
+
 - `POST /api/travel/approve` — approve or request revisions on a draft
+
   ```json
-  { "thread_id": "<id>", "approved": true, "feedback": "optional" }
+  {
+    "thread_id": "<id>",
+    "approved": true,
+    "feedback": "optional"
+  }
   ```
+
 - `GET /health` — health check
 
 ## Deployment
@@ -134,4 +148,4 @@ Issues and pull requests are welcome — bug fixes, documentation improvements, 
 
 ## License
 
-Apache-2.0 — see [`LICENSE`](./LICENSE). Built on foundational work from [entbappy](https://github.com/entbappy)'s original LangGraph + MCP demo.
+Apache-2.0 — see [`LICENSE`](./LICENSE).
